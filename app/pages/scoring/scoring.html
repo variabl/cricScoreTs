@@ -1,0 +1,119 @@
+<ion-navbar *navbar>
+  <ion-title>Scoring</ion-title>
+</ion-navbar>
+
+<ion-content padding class="scoring">
+        <ion-list>
+            <ion-row center>
+                <ion-col width-100>
+                    <button dots  block  (click)="addEvenRuns(0)" data-ng-disabled="score.totalWickets>9">
+                        0
+                    </button>
+                </ion-col>
+                </ion-row>
+     
+             <ion-row center>
+                <ion-col width-100>
+                    <button dots  block  (click)="addOddRuns(1)" data-ng-disabled="score.totalWickets>9">
+                        1
+                    </button>
+                </ion-col>
+                </ion-row>
+    
+
+         <ion-row center>
+                <ion-col width-33>
+                    <button  block  (click)="addEvenRuns(2)" data-ng-disabled="score.totalWickets>9">
+                        2
+                    </button>
+                </ion-col>
+                <ion-col width-33>
+                    <button  block  (click)="addOddRuns(3)" data-ng-disabled="score.totalWickets>9">
+                        3
+                    </button>
+                </ion-col>
+                <ion-col width-33>
+                    <button  block  (click)="addOddRuns(5)" data-ng-disabled="score.totalWickets>9">
+                        5
+                    </button>
+                </ion-col>
+         </ion-row>
+           
+          <ion-row center>
+                <ion-col width-50>
+                    <button secondary block  (click)="addEvenRuns(4)" data-ng-disabled="score.totalWickets>9">
+                        4
+                    </button>
+                </ion-col>
+                <ion-col width-50>
+                    <button secondary block  (click)="addEvenRuns(6)" data-ng-disabled="score.totalWickets>9">
+                        6
+                    </button>
+                </ion-col>
+          </ion-row>
+          
+    <ion-row center>
+                <ion-col width-40>
+                
+                    <button extras block  (click)="addWide(1)" data-ng-disabled="score.totalWickets>9">
+                        Wide
+                    </button>
+                </ion-col>
+                 <ion-col width-10>
+                     <button extras block (click)="showPopup()" data-ng-disabled="score.totalWickets>9">
+                        +
+                    </button>
+                    </ion-col>
+              
+          <ion-col width-40>
+
+                   
+                    <button extras block (click)="addNoBall()" data-ng-disabled="score.totalWickets>9">
+                        No ball
+                    </button>
+          </ion-col>
+                     <ion-col width-10>
+                     <button extras block  (click)="addNoBall()" data-ng-disabled="score.totalWickets>9">
+                        +
+                    </button>
+                     </ion-col>
+             
+    </ion-row>
+        
+
+
+<ion-row center>
+                 <ion-col width-33>
+                    <button extras block  (click)="AddBye()" data-ng-disabled="score.totalWickets>9">
+                        Bye
+                    </button>
+              </ion-col>
+                 <ion-col width-33>
+                    <button extras block   (click)="AddLegBye()" data-ng-disabled="score.totalWickets>9">
+                        Leg Bye
+                    </button>
+               </ion-col>
+                 <ion-col width-33>
+                    <button danger block  (click)="addWickets()" data-ng-disabled="score.totalWickets>9">
+                        Wicket
+                    </button>
+                 </ion-col>
+               
+</ion-row>
+            
+
+
+
+
+
+
+
+        </ion-list>
+
+                
+     Striker:           {{score.batsman.striker}} <br/>
+      Overs:          {{score.ball.overs}}.{{score.ball.legalBallNumberThisOver}} <br/>
+     
+      TotalBalls:  {{allBalls.length}}<br/>
+      TotalRuns : {{totalScore}} / {{total}}
+    </ion-content>
