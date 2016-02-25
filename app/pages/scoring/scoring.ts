@@ -8,20 +8,14 @@ import {BallBowled} from '../../services/BallBowled';
     providers: [ScorecardService]
 })
 export class Scoring{
-ball = new BallBowled();
-scoreCard;
+
 subscription;
-subscription1;
 totalScore;
     constructor(public scoreService: ScorecardService) {
     }
     
     ngOnInit() {
-    this.subscription = this.scoreService.getBallBowledEmitter()
-      .subscribe(ballArray => {
-          });
-          
-              this.subscription1 = this.scoreService.getTotalScore()
+              this.subscription = this.scoreService.getTotalScoreEmitted()
       .subscribe(Runs => { this.totalScore = Runs
           });
   }
@@ -33,26 +27,18 @@ score = this.scoreService.ballJson;
 
 
          addEvenRuns (runsThisBall) {
-/*            this.scoreService.setRuns(runsThisBall);
-            if (runsThisBall % 2 == 1) {
-                this.scoreService.crossPitch();
-            };
-            this.scoreService.emitBallBowledEvent();*/
+
            this.scoreService.addEvenRunsByBat(runsThisBall);
            this.scoreService.saveBall(this.score);
-           this.scoreService.emitBallBowledEvent();
+           this.scoreService.emitTotalRuns();
             
         };
         
                  addOddRuns (runsThisBall) {
-/*            this.scoreService.setRuns(runsThisBall);
-            if (runsThisBall % 2 == 1) {
-                this.scoreService.crossPitch();
-            };
-            this.scoreService.emitBallBowledEvent();*/
+
            this.scoreService.addOddRunsByBat(runsThisBall);
                      this.scoreService.saveBall(this.score);
-             this.scoreService.emitBallBowledEvent();
+             this.scoreService.emitTotalRuns();
             
         };
 
